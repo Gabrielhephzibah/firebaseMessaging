@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:fontFamily="monospace"
+            android:text="You Are Welcome"/>
+        <Button
+           android:id="@+id/signUpBtn"
+            android:layout_marginTop="34dp"
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/button_bg_with_radius"
+            android:text="Sign Up"/>
+
+
+        <Button
+            android:id="@+id/signInBtn"
+            android:layout_marginTop="34dp"
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/button_bg_with_radius"
+            android:text="Sign In"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

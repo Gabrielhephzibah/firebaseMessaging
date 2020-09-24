@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FireBaseMessaging</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string-array name="category_array">
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Swift</item>
+        <item>Educational</item>
+        <item>Motivational</item>
+        <item>Religious</item>
+        <item>Marriage</item>
+        <item>Career</item>
+        <item>Spiritual</item>
+        <item>Development</item>
+        <item>Inspirational</item>
+        <item>Gallery</item>
+    </string-array>
+</resources>
