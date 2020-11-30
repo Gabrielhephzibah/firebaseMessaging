@@ -2,7 +2,9 @@ package com.cherish.firebasemessaging;
 
 public class FCMessage {
     private String to;
-    private  Data data;
+    private Data data;
+//    private Data notification;
+
 
 
     public FCMessage(String to, Data data) {
@@ -10,13 +12,12 @@ public class FCMessage {
         this.data = data;
     }
 
-
-    public String getTitle() {
+    public String getTo() {
         return to;
     }
 
-    public void setTitle(String title) {
-        this.to = title;
+    public void setTo(String to) {
+        this.to = to;
     }
 
     public Data getData() {

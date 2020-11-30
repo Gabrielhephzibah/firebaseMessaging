@@ -17,9 +17,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,6 +51,18 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+        FirebaseMessaging.getInstance().subscribeToTopic("all").addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.i("Subscribe Suceessful", "Successful");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("Onfailure", "ONFAILED");
+            }
+        });
+
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //       getSupportActionBar().setHomeButtonEnabled(true);
         actionBarDrawerToggle.isDrawerIndicatorEnabled();
@@ -98,6 +113,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         if (view.getId() == R.id.addBooks){
             Intent intent = new Intent(getApplicationContext(), AddBookActivity.class);
+            startActivity(intent);
+        }else if (view.getId() == R.id.getBooks) {
+            Intent intent = new Intent(getApplicationContext(), GetAllBooksActivity.class);
             startActivity(intent);
         }
 

@@ -42,8 +42,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
-    implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
     implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
+
+
+    //RefreshSwipeLayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    //paging
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+
 
     //RETROFIT
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

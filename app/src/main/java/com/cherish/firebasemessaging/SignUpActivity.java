@@ -185,7 +185,7 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 progressDialog.cancel();
-                                Toast.makeText(SignUpActivity.this, " Failed", Toast.LENGTH_LONG).show();
+                                Alert.showFailed(SignUpActivity.this, "Authentication Failed");
                                 Log.i("ERROR", e.getMessage());
                                 Log.i("ERROR", e.getLocalizedMessage());
                                 e.printStackTrace();
@@ -275,7 +275,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
 
         }else {
-             Toast.makeText(SignUpActivity.this, " Failed", Toast.LENGTH_LONG).show();
+            Alert.showFailed(this, "Failed");
          }
     }
 
@@ -336,6 +336,7 @@ public class SignUpActivity extends AppCompatActivity {
                                }
                            });
                        }else {
+                           Alert.showFailed(SignUpActivity.this, "Authentication Failed");
                            Snackbar.make(wrapperLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                        }
 

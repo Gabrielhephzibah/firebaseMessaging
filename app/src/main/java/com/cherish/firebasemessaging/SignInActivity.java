@@ -95,7 +95,7 @@ public class SignInActivity extends AppCompatActivity {
                                 finish();
                             }else {
                                 progressDialog.cancel();
-                                Toast.makeText(SignInActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Alert.showFailed(SignInActivity.this, "Failed");
                             }
                         }
                     });
@@ -140,7 +140,7 @@ public class SignInActivity extends AppCompatActivity {
             }
         }else {
             progressDialog.cancel();
-            Toast.makeText(SignInActivity.this, " Failed", Toast.LENGTH_LONG).show();
+            Alert.showFailed(this, "Failed");
         }
     }
 

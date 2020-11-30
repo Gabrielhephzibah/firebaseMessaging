@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -52,6 +53,7 @@ public class AddBookActivity extends AppCompatActivity {
     Button submitBook;
     String bookNameText, bookDescriptionText, bookCategoryText;
     Uri imageUrl;
+    ProgressDialog progressDialog;
     private StorageReference reference;
     private CollectionReference collectionReference;
     ImageView bookImage;
@@ -78,6 +80,9 @@ public class AddBookActivity extends AppCompatActivity {
         bookCategory.setThreshold(1);
         bookCategory.setCompletionHint("Select category");
         bookCategory.setAdapter(adapter);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
 
         submitBook.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +105,7 @@ public class AddBookActivity extends AppCompatActivity {
                     Toast.makeText(AddBookActivity.this, "Image is Required", Toast.LENGTH_LONG).show();
                     bookImage.requestFocus();
                 }else {
+                    progressDialog.show();
                     StorageReference storageReference = reference.child("practice/" + System.currentTimeMillis());
                     storageReference.putFile(imageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -113,7 +119,10 @@ public class AddBookActivity extends AppCompatActivity {
                                        @Override
                                        public void onSuccess(Void aVoid) {
                                            Alert.showSuccess(AddBookActivity.this, "Successful");
-                                           sendNotification(bookNameText,"A new Book has been added to"+bookCategoryText);
+                                           progressDialog.cancel();
+                                           sendNotification(bookNameText,"A new Book has been added to "+ bookCategoryText);
+                                           Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                                           startActivity(intent);
 
 
 
@@ -228,6 +237,8 @@ public class AddBookActivity extends AppCompatActivity {
 
         Data data = new Data(title,message);
         FCMessage fcMessage = new FCMessage("/topics/all", data);
+
+
 
         apiService.sendMessage(header,fcMessage).enqueue(new Callback<ResponseBody>() {
             @Override
